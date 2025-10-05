@@ -4,58 +4,81 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dhanda Booster — Direct — Clean Pro</title>
+  <meta name="description" content="Fix Your Growth Bottlenecks — Fast. 30-min consults with practical automation & growth fixes." />
+  <!-- Inline SVG favicon to avoid 404 -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23FF5A00'/%3E%3Ctext x='50' y='62' font-size='48' text-anchor='middle' fill='%23fff' font-family='Poppins, Arial'%3EDB%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/common.css" />
   <link rel="stylesheet" href="css/direct.css" />
 </head>
 <body data-tone="direct" data-variant="clean-pro">
   <div class="container">
     <header class="header" role="banner">
-      <div class="logo" aria-hidden="false">
-        <svg viewBox="0 0 200 40" width="180" height="34" aria-hidden="true"><rect rx="6" width="36" height="36" fill="#FF5A00"/><text x="50" y="24" font-family="Poppins, sans-serif" font-weight="700" font-size="16" fill="#111">Dhanda Booster</text></svg>
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 200 40" width="180" height="34" aria-hidden="true" focusable="false">
+          <rect rx="6" width="36" height="36" fill="#FF5A00"/>
+          <text x="50" y="24" font-family="Poppins, sans-serif" font-weight="700" font-size="16" fill="#111">Dhanda Booster</text>
+        </svg>
       </div>
-      <nav><button id="langBtn" class="lang-toggle">हिन्दी</button></nav>
+      <nav>
+        <button id="langBtn" class="lang-toggle" aria-pressed="false">हिन्दी</button>
+      </nav>
     </header>
 
-    <main role="main">
+    <main role="main" aria-live="polite">
+      <!-- HERO (clean placeholders only; JS will populate content) -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <h1 id="hero-title">Loading…</h1>
-          <p id="hero-sub" class="sub">Loading…</p>
-          <div class="cta-row">
-            <button id="cta-primary" class="btn btn-primary">Loading</button>
-            <button id="cta-secondary" class="btn btn-ghost">Loading</button>
+          <h1 id="hero-title" aria-live="polite"></h1>
+          <p id="hero-sub" class="sub" aria-live="polite"></p>
+
+          <div class="cta-row" role="group" aria-label="Primary actions">
+            <button id="cta-primary" class="btn btn-primary" aria-live="polite"></button>
+            <button id="cta-secondary" class="btn btn-ghost" aria-live="polite"></button>
           </div>
-          <p id="microcopy" class="small">Loading…</p>
+
+          <p id="microcopy" class="small" aria-live="polite"></p>
         </div>
+
         <div class="illustration" aria-hidden="true">
-          <svg width="100%" height="160" viewBox="0 0 360 160"><rect rx="12" width="360" height="160" fill="#fff"/></svg>
+          <!-- simple placeholder illustration (kept intentionally minimal) -->
+          <svg width="100%" height="160" viewBox="0 0 360 160" role="img" aria-hidden="true">
+            <rect rx="12" width="360" height="160" fill="#fff"/>
+          </svg>
         </div>
       </section>
 
+      <!-- Calendly embed target -->
       <div id="calendlyInline" style="margin-top:14px"></div>
 
+      <!-- Value bullets -->
       <section class="values" aria-labelledby="values-heading">
         <h2 id="values-heading">Why this works</h2>
         <div id="bullets" class="bullets" role="list"></div>
       </section>
 
+      <!-- Features -->
       <section id="features" class="features" aria-labelledby="features-heading"></section>
 
+      <!-- Process / Steps -->
       <section id="process" class="process" aria-labelledby="process-heading"></section>
 
-      <section id="pricing-area">
+      <!-- Pricing -->
+      <section id="pricing-area" aria-labelledby="pricing-heading">
         <h2 id="pricing-heading">Pricing</h2>
         <div id="pricing-phrase" class="small"></div>
+
         <div class="pricing" aria-labelledby="pricing-heading">
           <div class="price-card">
             <h3>Single — ₹499</h3>
             <p>One focused 30-min session</p>
             <button onclick="openPayment()" class="btn btn-primary">Pay / Book — ₹499</button>
           </div>
+
           <div class="price-card">
             <h3>2-pack — ₹899</h3>
             <button onclick="openPayment()" class="btn btn-ghost">Choose</button>
           </div>
+
           <div class="price-card">
             <h3>4-pack — ₹1,599</h3>
             <button onclick="openPayment()" class="btn btn-ghost">Choose</button>
@@ -63,19 +86,28 @@
         </div>
       </section>
 
+      <!-- Social proof / testimonials -->
       <section id="social-proof" class="features" aria-labelledby="proof-heading"></section>
 
+      <!-- FAQ -->
       <section id="faq" class="faq" aria-labelledby="faq-heading">
         <h2 id="faq-heading">FAQ</h2>
         <div id="faq-list"></div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container small">Dhanda Booster — Short, sharp consultations that deliver real automation and growth.</div>
     </footer>
   </div>
 
+  <!-- Core JS (shared) -->
   <script src="js/main.js"></script>
+
+  <noscript>
+    <div style="padding:18px;background:#fff3e0;border-radius:8px;margin:16px;font-family:Inter,Arial;">
+      JavaScript is required to load the demo content. Please enable JavaScript or view the <a href="index.html">catalog</a>.
+    </div>
+  </noscript>
 </body>
 </html>
