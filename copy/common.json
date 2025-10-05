@@ -1,0 +1,20 @@
+{
+  "microcopy": ["Enter your best email — we’ll send your booking link.","Pick a slot that suits your hustle.","We’ll reply within 6 hours. Promise."],
+  "bullets": ["Fast actionable advice","No retainer headaches","Done-for-you templates"],
+  "features": [
+    {"title":"Action in 30 Minutes","description":"No long strategy decks. You jump on a focused 30-min call, get clarity, next steps, and plug-and-play templates to act the same day."},
+    {"title":"Built for Small Biz Founders","description":"Practical fixes that match your scale — no fluff, no fancy jargon."},
+    {"title":"Automation That Pays Back","description":"We set up or guide you through simple automations that save hours weekly. ROI you can see, not just feel."}
+  ],
+  "process":["Step 1: Pick your plan and book your slot.","Step 2: Jump on a 30-min video call with our expert.","Step 3: Get your custom action plan and templates same-day."],
+  "social_proof":["“30 mins felt like a full strategy sprint.” — Ramesh, D2C Founder","“Finally a consultant who doesn’t waste time.” — Kavita, Freelancer","“Got my workflow automated the same day.” — Arjun, Agency Owner","“High ROI for ₹499 — no-brainer.” — Sneha, Ecommerce Seller"],
+  "faqs":[
+    {"q":"Who is Dhanda Booster for?","a":"Small business founders, solopreneurs, and freelancers who need quick, actionable business guidance."},
+    {"q":"What do I get after the session?","a":"You’ll receive clear next steps, templates, and automation ideas ready to implement right away."},
+    {"q":"How long is each consultation?","a":"Each session is a focused 30-minute video call designed to deliver fast clarity."},
+    {"q":"Can I book multiple sessions?","a":"Yes, you can choose 2-pack or 4-pack plans for ongoing monthly support."},
+    {"q":"Do you offer refunds?","a":"We don’t, but we guarantee actionable advice or we’ll offer a free follow-up call."},
+    {"q":"Is it only for Indian startups?","a":"Our focus is India, but any founder wanting practical small business automation can book."}
+  ],
+  "pricing_phrases":["Start small — big results follow.","Low cost, high ROI consulting.","Fix one thing today — scale tomorrow."]
+}
