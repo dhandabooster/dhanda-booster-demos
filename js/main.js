@@ -1,159 +1,112 @@
-/* main.js - single shared script for all pages
-   Responsibilities:
-   - read data-tone and data-variant from <body>
-   - fetch /copy/common.json and /copy/{tone}.json
-   - populate page elements (hero, bullets, features, pricing, faqs, social proof)
-   - handle Calendly inline embed & language toggle (EN/HI)
-   - Payment placeholders and UPI copy
-*/
+// DEBUG main.js - temporarily replace original to trace fetches & runtime errors
+(async function debugMain(){
+  try{
+    console.clear();
+    console.log("DEBUG main.js starting...");
 
-(async function(){
-  // helpers
-  function by(id){ return document.getElementById(id); }
-  function q(sel){ return document.querySelector(sel); }
+    // compute base path (same logic used in production)
+    const basePath = location.pathname.replace(/\/[^/]*$/, '/');
+    console.log("basePath:", basePath);
 
-  const tone = document.body.dataset.tone || 'direct';
-  const variant = document.body.dataset.variant || 'clean-pro';
-  const basePath = location.pathname.replace(/\/[^/]*$/, '/'); // path to root
-  // load JSONs
-  async function loadJSON(path){
-    const res = await fetch(path);
-    return res.ok ? res.json() : {};
-  }
-  const [common, toneCopy] = await Promise.all([
-    loadJSON(basePath + 'copy/common.json'),
-    loadJSON(basePath + `copy/${tone}.json`)
-  ]);
+    const urls = {
+      mainJs: basePath + 'js/main.js', // this file (for reference)
+      cssCommon: basePath + 'css/common.css',
+      copyCommon: basePath + 'copy/common.json',
+      copyTone: basePath + 'copy/' + (document.body.dataset?.tone || 'direct') + '.json'
+    };
+    console.log("Will check URLs:", urls);
 
-  // merge copy: tone overrides common top-level fields
-  const copy = Object.assign({}, common, toneCopy || {});
-  // copy can contain arrays/objects from common (features, bullets, etc.)
-
-  // language toggle: English (en) and Hindi (hi) - static translations for key strings
-  let lang = 'en';
-  const translations = {
-    en: { hero: copy.hero || toneCopy.hero || '', sub: copy.subhead || toneCopy.subhead || '' },
-    hi: { 
-      hero: (tone === 'playful') ? "धन्दा ड्रामा? चलो ठीक करें 🚀" : (tone === 'helpful' ? "विकासशील संस्थापकों के लिए स्पष्टता और सिस्टम।" : "अपनी ग्रोथ की रुकावटें — जल्दी ठीक करें।"),
-      sub: (tone === 'playful') ? "30 मिनट की चटख़ सलाह — जल्द क्लैरिटी।" : (tone === 'helpful' ? "दोस्ताना, व्यावहारिक बिजनेस कंसल्टेशन — छोटे व्यवसायों के लिए।" : "30 मिनट की कंसल्टेशन बुक करें और कुछ ही घंटों में ROI-ड्रिवन फ़िक्स पाएं।")
+    // helper to fetch and log status and optionally json
+    async function check(url, asJson=false){
+      try{
+        const r = await fetch(url, {cache: "no-cache"});
+        console.log(url, "=>", r.status, r.statusText);
+        if(!r.ok) {
+          throw new Error('HTTP ' + r.status + ' ' + r.statusText);
+        }
+        if(asJson){
+          try{
+            const j = await r.json();
+            console.log(url, "JSON preview:", j && (Array.isArray(j) ? `[array ${j.length}]` : Object.keys(j).slice(0,10)));
+            return j;
+          } catch(jsonErr){
+            console.error(url, "JSON parse error:", jsonErr);
+            throw jsonErr;
+          }
+        }
+        return r;
+      } catch(err){
+        console.error(url, "FETCH ERROR:", err);
+        throw err;
+      }
     }
-  };
 
-  // Populate hero
-  const heroEl = by('hero-title');
-  const subEl = by('hero-sub');
-  const ctaPrimary = by('cta-primary');
-  const ctaSecondary = by('cta-secondary');
-  if(heroEl) heroEl.textContent = translations[lang].hero || copy.hero || toneCopy.hero || '';
-  if(subEl) subEl.textContent = translations[lang].sub || copy.subhead || toneCopy.subhead || '';
+    // check files in order
+    await check(urls.cssCommon).catch(()=>{});
+    // check main.js self (best-effort, it will request itself)
+    await check(urls.mainJs).catch(()=>{});
+    // check common json
+    const common = await check(urls.copyCommon, true).catch(()=>null);
+    // check tone json
+    const tone = await check(urls.copyTone, true).catch(()=>null);
 
-  // Buttons text
-  if(ctaPrimary) ctaPrimary.textContent = (toneCopy && toneCopy.cta_primary) || copy.cta_primary || "Book — ₹499";
-  if(ctaSecondary) ctaSecondary.textContent = (toneCopy && toneCopy.cta_secondary) || copy.cta_secondary || "See How";
+    // Simple DOM sanity: ensure key elements exist or create placeholders
+    function ensureId(id, tag='div'){
+      let el = document.getElementById(id);
+      if(!el){
+        el = document.createElement(tag);
+        el.id = id;
+        document.body.insertBefore(el, document.body.firstChild);
+        console.log('Created missing element #' + id);
+      }
+      return el;
+    }
+    ensureId('hero-title','h1');
+    ensureId('hero-sub','p');
+    ensureId('cta-primary','button');
+    ensureId('cta-secondary','button');
+    ensureId('microcopy','div');
+    ensureId('bullets','div');
+    ensureId('features','div');
+    ensureId('faq-list','div');
 
-  // Microcopy
-  const microEl = by('microcopy');
-  if(microEl) microEl.textContent = (copy.microcopy && copy.microcopy[0]) || "Enter your best email — we’ll send your booking link.";
+    // Show some populated values so page isn't blank
+    const heroEl = document.getElementById('hero-title');
+    heroEl.textContent = (tone && tone.hero) || (common && common.hero) || 'Hero: (no hero text found)';
+    const subEl = document.getElementById('hero-sub');
+    subEl.textContent = (tone && tone.subhead) || (common && common.subhead) || '';
+    document.getElementById('cta-primary').textContent = (tone && tone.cta_primary) || (common && common.cta_primary) || 'Book — ₹499';
+    document.getElementById('cta-secondary').textContent = (tone && tone.cta_secondary) || (common && common.cta_secondary) || 'See How';
+    document.getElementById('microcopy').textContent = (common && common.microcopy && common.microcopy[0]) || 'Microcopy missing';
 
-  // bullets
-  const bulletsWrap = by('bullets');
-  if(bulletsWrap && copy.bullets){
+    // populate bullets/features if present
+    const bulletsWrap = document.getElementById('bullets');
     bulletsWrap.innerHTML = '';
-    copy.bullets.forEach(b=>{
-      const d = document.createElement('div'); d.className='bullet';
-      d.innerHTML = `<strong>${b}</strong><small class="small"></small>`;
-      bulletsWrap.appendChild(d);
-    });
-  }
+    if(common && Array.isArray(common.bullets)){
+      common.bullets.forEach(b => {
+        const node = document.createElement('div'); node.className='bullet'; node.textContent = b;
+        bulletsWrap.appendChild(node);
+      });
+      console.log("Populated bullets from common.json");
+    } else {
+      bulletsWrap.textContent = '(no bullets)';
+    }
 
-  // features
-  const featuresWrap = by('features');
-  if(featuresWrap && copy.features){
+    const featuresWrap = document.getElementById('features');
     featuresWrap.innerHTML = '';
-    copy.features.forEach(f=>{
-      const d=document.createElement('div'); d.className='card';
-      d.innerHTML = `<h3>${f.title}</h3><p>${f.description}</p>`;
-      featuresWrap.appendChild(d);
-    });
+    if(common && Array.isArray(common.features)){
+      common.features.forEach(f=>{
+        const n = document.createElement('div'); n.className='card';
+        n.innerHTML = '<h3>'+f.title+'</h3><p>'+f.description+'</p>';
+        featuresWrap.appendChild(n);
+      });
+      console.log("Populated features from common.json");
+    } else {
+      featuresWrap.textContent = '(no features)';
+    }
+
+    console.log('DEBUG main.js finished successfully. If UI still looks empty, check for CSS loading errors above.');
+  } catch(e){
+    console.error('Unhandled error in debugMain:', e);
   }
-
-  // pricing (static layout but phrases)
-  const pricingPhrase = by('pricing-phrase');
-  if(pricingPhrase && copy.pricing_phrases){
-    pricingPhrase.textContent = copy.pricing_phrases[0];
-  }
-
-  // social proof
-  const proofWrap = by('social-proof');
-  if(proofWrap && copy.social_proof){
-    proofWrap.innerHTML = '';
-    copy.social_proof.forEach(s=>{
-      const d=document.createElement('div'); d.className='card';
-      d.innerHTML = `<strong>${s}</strong>`;
-      proofWrap.appendChild(d);
-    });
-  }
-
-  // FAQ
-  const faqWrap = by('faq-list');
-  if(faqWrap && copy.faqs){
-    faqWrap.innerHTML = '';
-    copy.faqs.forEach(f=>{
-      const det = document.createElement('details');
-      det.innerHTML = `<summary>${f.q}</summary><p>${f.a}</p>`;
-      faqWrap.appendChild(det);
-    });
-  }
-
-  // process
-  const processWrap = by('process');
-  if(processWrap && copy.process){
-    processWrap.innerHTML = '';
-    copy.process.forEach((s,i)=>{
-      const d=document.createElement('div'); d.className='step';
-      d.innerHTML = `<strong>Step ${i+1}</strong><div class="small">${s.replace(/^Step \d:\s*/,'')}</div>`;
-      processWrap.appendChild(d);
-    });
-  }
-
-  // Calendly embed handler
-  function openCalendly(){
-    const target = by('calendlyInline');
-    if(!target) return;
-    target.innerHTML = `<div class="calendly-inline-widget" data-url="https://calendly.com/dhandabooster/30min" style="min-width:320px;height:700px;"></div>`;
-  }
-  // add handlers to CTA buttons
-  if(ctaPrimary) ctaPrimary.addEventListener('click', ()=>{ openCalendly(); window.location.hash='#calendlyInline'; });
-  if(ctaSecondary) ctaSecondary.addEventListener('click', ()=>{ openCalendly(); window.location.hash='#calendlyInline'; });
-
-  // payment placeholder
-  window.openPayment = function(){
-    window.open('https://placeholder.pay/razorpay-link','_blank');
-  };
-
-  // language toggle
-  const langBtn = by('langBtn');
-  if(langBtn){
-    langBtn.addEventListener('click', ()=>{
-      lang = (lang==='en') ? 'hi' : 'en';
-      // update hero/sub/button
-      heroEl.textContent = translations[lang].hero || (copy.hero || toneCopy.hero);
-      subEl.textContent = translations[lang].sub || (copy.subhead || toneCopy.subhead);
-      ctaPrimary.textContent = (toneCopy && toneCopy.cta_primary) || copy.cta_primary || ctaPrimary.textContent;
-      microEl.textContent = (lang==='en') ? ((copy.microcopy && copy.microcopy[0]) || '') : ((copy.microcopy && copy.microcopy[2]) || '');
-      langBtn.textContent = (lang==='en') ? 'हिन्दी' : 'EN';
-    });
-  }
-
-  // minimal accessibility: focus outlines for keyboard users
-  document.addEventListener('keyup', function(e){ if(e.key==='Tab'){ document.body.classList.add('show-focus'); }});
-
-  // load Calendly widget script (only once)
-  if(!window.__calendlyLoaded){
-    const s=document.createElement('script'); s.src='https://assets.calendly.com/assets/external/widget.js'; s.async=true; document.head.appendChild(s);
-    window.__calendlyLoaded = true;
-  }
-
-  // small console log
-  console.log('main.js loaded - tone:', tone, 'variant:', variant);
 })();
