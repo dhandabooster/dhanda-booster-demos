@@ -1,0 +1,11 @@
+/* helpful.css - tone: helpful_expert (warm, calm) */
+:root{
+  --primary:#FFA94D;
+  --accent:#EAF0F6;
+  --primary-contrast:#fff;
+}
+body[data-tone="helpful"] .hero{background:linear-gradient(180deg, rgba(255,169,77,0.06), #fff)}
+body[data-tone="helpful"] .btn-primary{background:var(--primary);color:var(--primary-contrast);box-shadow:0 10px 28px rgba(255,169,77,0.12)}
+body[data-tone="helpful"] .btn-secondary{background:transparent;border:2px solid rgba(0,78,137,0.08);color:#004E89}
+body[data-tone="helpful"] .price-card{border:1px solid rgba(4,18,37,0.04)}
+body[data-tone="helpful"] .tag{background:#FFF3E6;color:#FF8A3D;padding:6px 10px;border-radius:8px}
