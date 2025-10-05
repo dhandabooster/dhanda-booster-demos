@@ -3,35 +3,179 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dhanda Booster — Demos</title>
+  <title>Dhanda Booster — Demo pages</title>
   <style>
-    body{font-family:Inter,system-ui;margin:24px;background:#f7f7fb;color:#111}
-    .wrap{max-width:880px;margin:0 auto}
-    h1{font-size:28px}
-    ul{list-style:none;padding:0}
-    li{background:#fff;padding:12px;border-radius:10px;margin:8px 0;border:1px solid #eee}
-    a{color:#FF7A00;text-decoration:none;font-weight:700}
-    small{color:#666;display:block;margin-top:6px}
+    body{font-family:Inter,system-ui,Arial;margin:24px;background:#f7f7fb;color:#111}
+    .wrap{max-width:980px;margin:0 auto}
+    h1{font-size:28px;margin-bottom:6px}
+    p{color:#555}
+    ul{list-style:none;padding:0;margin-top:18px}
+    li{background:#fff;padding:14px;border-radius:10px;margin:10px 0;border:1px solid #eee;display:flex;align-items:center;justify-content:space-between}
+    .left{display:flex;gap:12px;align-items:center}
+    .tag{background:#fff8f0;color:#ff7a00;padding:6px 10px;border-radius:999px;font-weight:700;border:1px solid rgba(255,122,0,0.06)}
+    a{color:#111;text-decoration:none;font-weight:700}
+    small{display:block;color:#666;margin-top:4px}
+    .actions{display:flex;gap:8px}
+    .btn{padding:8px 10px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+    .btn-link{background:#fff;border:1px solid #eee}
+    .btn-vote{background:#FF7A00;color:#fff}
+    footer{margin-top:20px;color:#666;font-size:13px}
+    @media(max-width:640px){li{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Dhanda Booster — Demo pages</h1>
-    <p>Open any page to preview. Share these links with reviewers.</p>
+    <p>Click any demo to preview. After previewing, click <strong>Vote</strong> to send a quick email with your choice (or copy link).</p>
+
     <ul>
-      <li><a href="direct-sales-clean-pro.html">direct-sales-clean-pro.html</a><small>Direct — Clean Pro</small></li>
-      <li><a href="direct-sales-gradient-boost.html">direct-sales-gradient-boost.html</a><small>Direct — Gradient Boost</small></li>
-      <li><a href="direct-sales-founder-desk.html">direct-sales-founder-desk.html</a><small>Direct — Founder Desk</small></li>
+      <li>
+        <div class="left">
+          <span class="tag">1</span>
+          <div>
+            <a href="1-direct-sales-clean-pro.html" target="_blank" rel="noopener">direct-sales-clean-pro.html</a>
+            <small>Direct — Clean Pro</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('1-direct-sales-clean-pro.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('1-direct-sales-clean-pro.html')">Vote</button>
+        </div>
+      </li>
 
-      <li><a href="helpful-expert-clean-pro.html">helpful-expert-clean-pro.html</a><small>Helpful — Clean Pro</small></li>
-      <li><a href="helpful-expert-gradient-boost.html">helpful-expert-gradient-boost.html</a><small>Helpful — Gradient Boost</small></li>
-      <li><a href="helpful-expert-founder-desk.html">helpful-expert-founder-desk.html</a><small>Helpful — Founder Desk</small></li>
+      <li>
+        <div class="left">
+          <span class="tag">2</span>
+          <div>
+            <a href="2-direct-sales-gradient-boost.html" target="_blank" rel="noopener">direct-sales-gradient-boost.html</a>
+            <small>Direct — Gradient Boost</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('2-direct-sales-gradient-boost.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('2-direct-sales-gradient-boost.html')">Vote</button>
+        </div>
+      </li>
 
-      <li><a href="playful_startup_1.html">playful_startup_1.html</a><small>Playful — Variant 1</small></li>
-      <li><a href="playful_startup_2.html">playful_startup_2.html</a><small>Playful — Variant 2</small></li>
-      <li><a href="playful_startup_3.html">playful_startup_3.html</a><small>Playful — Variant 3</small></li>
+      <li>
+        <div class="left">
+          <span class="tag">3</span>
+          <div>
+            <a href="3-direct-sales-founder-desk.html" target="_blank" rel="noopener">direct-sales-founder-desk.html</a>
+            <small>Direct — Founder Desk</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('3-direct-sales-founder-desk.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('3-direct-sales-founder-desk.html')">Vote</button>
+        </div>
+      </li>
+
+      <li>
+        <div class="left">
+          <span class="tag">4</span>
+          <div>
+            <a href="4-helpful-expert-clean-pro.html" target="_blank" rel="noopener">helpful-expert-clean-pro.html</a>
+            <small>Helpful — Clean Pro</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('4-helpful-expert-clean-pro.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('4-helpful-expert-clean-pro.html')">Vote</button>
+        </div>
+      </li>
+
+      <li>
+        <div class="left">
+          <span class="tag">5</span>
+          <div>
+            <a href="5-helpful-expert-gradient-boost.html" target="_blank" rel="noopener">helpful-expert-gradient-boost.html</a>
+            <small>Helpful — Gradient Boost</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('5-helpful-expert-gradient-boost.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('5-helpful-expert-gradient-boost.html')">Vote</button>
+        </div>
+      </li>
+
+      <li>
+        <div class="left">
+          <span class="tag">6</span>
+          <div>
+            <a href="6-helpful-expert-founder-desk.html" target="_blank" rel="noopener">helpful-expert-founder-desk.html</a>
+            <small>Helpful — Founder Desk</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('6-helpful-expert-founder-desk.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('6-helpful-expert-founder-desk.html')">Vote</button>
+        </div>
+      </li>
+
+      <li>
+        <div class="left">
+          <span class="tag">7</span>
+          <div>
+            <a href="7-playful_startup_1.html" target="_blank" rel="noopener">playful_startup_1.html</a>
+            <small>Playful — Variant 1</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('7-playful_startup_1.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('7-playful_startup_1.html')">Vote</button>
+        </div>
+      </li>
+
+      <li>
+        <div class="left">
+          <span class="tag">8</span>
+          <div>
+            <a href="8-playful_startup_2.html" target="_blank" rel="noopener">playful_startup_2.html</a>
+            <small>Playful — Variant 2</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('8-playful_startup_2.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('8-playful_startup_2.html')">Vote</button>
+        </div>
+      </li>
+
+      <li>
+        <div class="left">
+          <span class="tag">9</span>
+          <div>
+            <a href="9-playful_startup_3.html" target="_blank" rel="noopener">playful_startup_3.html</a>
+            <small>Playful — Variant 3</small>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-link" onclick="copyLink('9-playful_startup_3.html')">Copy link</button>
+          <button class="btn btn-vote" onclick="vote('9-playful_startup_3.html')">Vote</button>
+        </div>
+      </li>
     </ul>
-    <p style="margin-top:18px;color:#666">Tip: keep this file as <code>index.html</code> so visitors land on a catalog page.</p>
+
+    <footer>
+      <p>Tip: Share this page URL with reviewers: <strong id="shareUrl"></strong></p>
+    </footer>
   </div>
+
+  <script>
+    // Set share URL text
+    document.getElementById('shareUrl').textContent = location.href.replace(/\/index\.html$|\/$/, '/');
+
+    function copyLink(filename){
+      const full = location.origin + location.pathname.replace(/index\.html$/, '') + filename;
+      navigator.clipboard.writeText(full).then(()=>alert('Copied: ' + full));
+    }
+
+    function vote(filename){
+      const url = location.origin + location.pathname.replace(/index\.html$/, '') + filename;
+      const subject = encodeURIComponent('Dhanda Booster demo vote');
+      const body = encodeURIComponent('I vote for: ' + filename + '\n' + url + '\n\n(Optional: add quick feedback here)');
+      window.location.href = 'mailto:dhanda@yourdomain.com?subject=' + subject + '&body=' + body;
+    }
+  </script>
 </body>
 </html>
