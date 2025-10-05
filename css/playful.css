@@ -1,0 +1,11 @@
+/* playful.css - tone: playful_startup (bright, emoji-friendly) */
+:root{
+  --primary:#FF7A00;
+  --accent:#FFDF6C;
+  --primary-contrast:#fff;
+}
+body[data-tone="playful"] .hero{background:linear-gradient(135deg, rgba(255,122,0,0.06), rgba(255,223,108,0.04))}
+body[data-tone="playful"] .btn-primary{background:var(--primary);color:var(--primary-contrast);box-shadow:0 14px 36px rgba(255,122,0,0.14)}
+body[data-tone="playful"] .btn-secondary{background:transparent;border:2px solid rgba(0,0,0,0.06);color:var(--primary)}
+body[data-tone="playful"] .price-card{border:1px solid rgba(255,122,0,0.08)}
+body[data-tone="playful"] .tag{background:var(--accent);color:#111;padding:6px 10px;border-radius:8px}
