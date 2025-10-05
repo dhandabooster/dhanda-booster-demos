@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dhanda Booster — Got Dhanda Drama? Let’s Fix It.</title>
+<meta name="description" content="Cheeky 30-min consults that turn chaos into clarity — fast." />
+<!-- GA4 placeholder: replace G-XXXXX -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXX');</script> -->
+<style>
+  :root{
+    --bg:#FFF4E0; --primary:#FF7A00; --accent:#FFDF6C; --dark:#111;
+    --card:#fff; --radius:18px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system; background:linear-gradient(180deg,var(--bg),#fff); color:var(--dark)}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo svg{height:42px}
+  .lang{border-radius:999px;padding:8px 12px;border:1px solid rgba(0,0,0,0.06);background:#fff;cursor:pointer}
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;padding:22px;border-radius:20px;background:linear-gradient(135deg,rgba(255,122,0,0.06),rgba(255,223,108,0.04));align-items:center;box-shadow:0 12px 32px rgba(22,20,20,0.04)}
+  h1{font-family:Poppins, sans-serif;font-size:40px;margin:0;line-height:1.05}
+  .sub{margin-top:8px;color:#223}
+  .cta-row{display:flex;gap:12px;margin-top:14px}
+  .btn{padding:12px 18px;border-radius:999px;border:0;font-weight:800;cursor:pointer}
+  .btn-primary{background:var(--primary);color:#fff;box-shadow:0 8px 22px rgba(255,122,0,0.16);transform:translateY(0);transition:transform .12s cubic-bezier(.2,.9,.3,1)}
+  .btn-primary:active{transform:translateY(2px) scale(.995)}
+  .btn-ghost{background:transparent;border:2px solid rgba(0,0,0,0.06);color:var(--dark)}
+  .pill {display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--card);box-shadow:0 8px 20px rgba(10,12,14,0.04)}
+  .illustr{border-radius:14px;padding:12px;background:linear-gradient(90deg,#fff,#fff4e6);display:flex;align-items:center;justify-content:center}
+  /* cards */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .card{background:var(--card);padding:16px;border-radius:14px;box-shadow:0 10px 28px rgba(12,18,30,0.04);transition:transform .18s ease}
+  .card:hover{transform:translateY(-8px)}
+  /* pricing */
+  .pricing{display:flex;gap:12px;margin-top:18px}
+  .price{flex:1;padding:16px;border-radius:14px;text-align:center;background:linear-gradient(180deg,#fff,#fff8f0);border:1px solid rgba(255,122,0,0.08)}
+  .price.highlight{box-shadow:0 18px 40px rgba(255,122,0,0.12);transform:scale(1.02)}
+  /* small */
+  .small{font-size:13px;color:#555}
+  footer{margin-top:30px;padding:20px;text-align:center;color:#555}
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;text-align:center}
+    .grid3{grid-template-columns:1fr}
+    .pricing{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="false">
+        <svg viewBox="0 0 220 42" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dhanda Booster">
+          <rect rx="10" width="42" height="42" fill="#FF7A00"/>
+          <text x="56" y="28" font-family="Poppins, sans-serif" font-weight="700" font-size="18" fill="#111">Dhanda Booster</text>
+        </svg>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button id="langToggle" class="lang" aria-pressed="false">हिन्दी</button>
+        <a href="#pricing" class="pill">Pricing ✨</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="h1">
+        <div>
+          <h1 id="h1">Got Dhanda Drama? Let’s Fix It. 🚀</h1>
+          <p class="sub">Cheeky 30-min consults that turn chaos into clarity — fast.</p>
+          <div class="cta-row" role="group">
+            <button class="btn btn-primary" id="bookBtn">Boost My Dhanda — ₹499</button>
+            <button class="btn btn-ghost" id="howBtn">Show Me the Magic</button>
+          </div>
+          <div class="small" style="margin-top:10px" id="microcopy">Enter your best email — we’ll send your booking link.</div>
+
+          <!-- quick fields -->
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <input id="name" placeholder="Your name" style="padding:10px;border-radius:12px;border:1px solid #eee;background:#fff"/>
+            <input id="email" placeholder="Email" style="padding:10px;border-radius:12px;border:1px solid #eee;background:#fff"/>
+          </div>
+        </div>
+
+        <div class="illustr" aria-hidden="true">
+          <!-- playful SVG -->
+          <svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#FF7A00"/><stop offset="1" stop-color="#FFDF6C"/></linearGradient></defs>
+            <rect rx="14" width="300" height="180" fill="url(#g)"/>
+            <g transform="translate(20,22)" fill="#fff">
+              <rect x="0" y="0" rx="8" width="120" height="70"/>
+              <circle cx="230" cy="60" r="26"/>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <div id="calendlyInline" style="margin-top:16px"></div>
+
+      <section style="margin-top:18px">
+        <div class="grid3" role="list">
+          <div class="card"><strong>Fast actionable advice ⚡</strong><div class="small">Cut the noise, act today.</div></div>
+          <div class="card"><strong>No retainer headaches 🙅</strong><div class="small">Pay per fix.</div></div>
+          <div class="card"><strong>Done-for-you templates 📄</strong><div class="small">Plug & ship.</div></div>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing" aria-labelledby="pricing-h" style="margin-top:18px">
+        <div class="price highlight">
+          <h3>Single — ₹499</h3>
+          <p class="small">One focused 30-min session.</p>
+          <div style="margin-top:12px">
+            <button class="btn btn-primary" onclick="openPayment('razorpay')">Pay / Book — ₹499</button>
+          </div>
+        </div>
+        <div class="price">
+          <h3>2-pack — ₹899</h3>
+          <p class="small">Two sessions</p>
+          <div style="margin-top:12px"><button class="btn btn-ghost" onclick="openPayment('razorpay')">Choose</button></div>
+        </div>
+        <div class="price">
+          <h3>4-pack — ₹1,599</h3>
+          <p class="small">Best for sprints</p>
+          <div style="margin-top:12px"><button class="btn btn-ghost" onclick="openPayment('razorpay')">Choose</button></div>
+        </div>
+      </section>
+
+      <section style="margin-top:18px">
+        <h3 style="margin:0 0 8px 0">What founders say</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="card">“30 mins felt like a full strategy sprint.” — Ramesh</div>
+          <div class="card">“High ROI for ₹499 — no-brainer.” — Sneha</div>
+        </div>
+      </section>
+
+      <section class="faq" style="margin-top:18px">
+        <h3>FAQ</h3>
+        <details><summary>How long is each consultation?</summary><p>30-minute focused sessions designed to deliver results.</p></details>
+        <details><summary>Do you offer refunds?</summary><p>No refunds, but we offer a free follow-up if not actionable.</p></details>
+      </section>
+    </main>
+
+    <footer>
+      <div class="small">Dhanda Booster — Smart, cheeky fixes for founders. UPI/QR placeholder after booking.</div>
+    </footer>
+  </div>
+
+<!-- Calendly -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  const copy = {
+    en:{hero:"Got Dhanda Drama? Let’s Fix It. 🚀", sub:"Cheeky 30-min consults that turn chaos into clarity — fast.", cta:"Boost My Dhanda — ₹499", micro:"Enter your best email — we’ll send your booking link."},
+    hi:{hero:"धन्दा ड्रामा? चलो ठीक करें 🚀", sub:"30 मिनट की चटख़ सलाह — जल्द क्लैरिटी।", cta:"मेरा धन्दा बूस्ट करें — ₹499", micro:"अपना बेस्ट ईमेल दें — हम बुकिंग लिंक भेजेंगे।"}
+  };
+  let lang='en';
+  const setLang = l=>{
+    lang=l;
+    document.getElementById('h1').textContent=copy[l].hero;
+    document.getElementById('microcopy').textContent=copy[l].micro;
+    document.querySelectorAll('.btn-primary').forEach(b=>b.textContent=copy[l].cta);
+  };
+  document.getElementById('langToggle').addEventListener('click',function(){
+    setLang(lang==='en'?'hi':'en');
+    this.textContent = (lang==='en') ? 'हिन्दी' : 'EN';
+  });
+
+  document.getElementById('bookBtn').addEventListener('click',()=>{
+    openCalendly();
+    window.location.hash='#calendlyInline';
+  });
+  document.getElementById('howBtn').addEventListener('click',()=>{ openCalendly(); window.location.hash='#calendlyInline'; });
+
+  function openCalendly(){
+    document.getElementById('calendlyInline').innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/dhandabooster/30min" style="min-width:320px;height:700px;"></div>';
+  }
+
+  function openPayment(){
+    // placeholder Razorpay link; replace with your real payment-link
+    window.open('https://placeholder.pay/razorpay-link','_blank');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Dhanda Booster — Small Call. Big Dhanda.</title>
+<meta name="description" content="Bright, energetic, emoji-friendly landing for Dhanda Booster."/>
+<!-- GA4 placeholder -->
+<style>
+  :root{--bg:#FFF4E0;--p:#FF7A00;--accent:#FFDF6C;--dark:#111}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Rubik,Inter,system-ui;background:var(--bg);color:var(--dark)}
+  .wrap{max-width:980px;margin:0 auto;padding:18px}
+  header{display:flex;justify-content:space-between;align-items:center}
+  .logo svg{height:36px}
+  .hero{background:#fff;border-radius:16px;padding:18px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 24px rgba(12,18,30,0.05)}
+  h1{color:var(--p);margin:0;font-size:30px}
+  .sub{color:#333}
+  .cta{display:flex;gap:10px;margin-top:10px}
+  .btn{padding:10px 14px;border-radius:999px;border:0;font-weight:800}
+  .primary{background:var(--p);color:#fff}
+  .ghost{background:transparent;border:2px solid rgba(0,0,0,0.06)}
+  .features{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+  .card{background:#fff;padding:12px;border-radius:12px}
+  .pricing{margin-top:14px}
+  .price-row{display:flex;gap:10px;flex-direction:column}
+  @media(min-width:900px){.features{grid-template-columns:repeat(3,1fr)} .price-row{flex-direction:row}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><svg viewBox="0 0 220 42"><rect rx="10" width="42" height="42" fill="#FF7A00"/><text x="56" y="26" font-family="Rubik" font-weight="700" font-size="18" fill="#111">Dhanda Booster</text></svg></div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button id="langToggle" class="lang">हिन्दी</button>
+        <a href="#pricing" class="small">Pricing</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="h">
+        <div style="flex:1">
+          <h1 id="h">Small Call. Big Dhanda. 🎉</h1>
+          <p class="sub">Turn Chaos into Systems — Fast.</p>
+          <div class="cta">
+            <button class="btn primary" id="book">Boost My Dhanda 🚀</button>
+            <button class="btn ghost" id="show">Show Me</button>
+          </div>
+          <div class="small" style="margin-top:8px">We’ll reply within 6 hours. Promise.</div>
+        </div>
+        <div style="width:180px" aria-hidden="true">
+          <svg width="160" height="120" viewBox="0 0 160 120"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#FF7A00"/><stop offset="1" stop-color="#FFDF6C"/></linearGradient></defs><rect rx="12" width="160" height="120" fill="url(#g)"/></svg>
+        </div>
+      </section>
+
+      <div id="calendlyInline" style="margin-top:14px"></div>
+
+      <section class="features" style="margin-top:14px">
+        <div class="card"><strong>Action in 30 Minutes</strong><div class="small">Get a clear plan & templates</div></div>
+        <div class="card"><strong>Built for Small Biz Founders</strong><div class="small">No fluff, real fixes</div></div>
+        <div class="card"><strong>Automation That Pays Back</strong><div class="small">Hours saved weekly</div></div>
+      </section>
+
+      <section id="pricing" class="pricing" style="margin-top:14px">
+        <h3>Pricing</h3>
+        <div class="price-row">
+          <div class="card" style="flex:1"><strong>Single — ₹499</strong><div class="small">30-min consult</div><div style="margin-top:10px"><button class="btn primary" onclick="openPayment('razorpay')">Pay / Book</button></div></div>
+          <div class="card" style="flex:1"><strong>2-pack — ₹899</strong><div class="small">Two sessions</div><div style="margin-top:10px"><button class="btn ghost" onclick="openPayment('razorpay')">Choose</button></div></div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+          <!-- UPI/QR placeholder -->
+          <div style="width:120px;height:120px;border-radius:10px;background:#fff;border:2px dashed rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center">UPI QR</div>
+          <div class="small">Prefer UPI? Scan the QR after booking.</div>
+        </div>
+      </section>
+
+      <section style="margin-top:14px">
+        <h4>Testimonials</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="card">“30 mins felt like a full strategy sprint.” — Ramesh</div>
+          <div class="card">“High ROI for ₹499 — no-brainer.” — Sneha</div>
+        </div>
+      </section>
+
+      <section class="faq" style="margin-top:12px">
+        <details><summary>Can I book multiple sessions?</summary><p>Yes — 2-pack & 4-pack available.</p></details>
+        <details><summary>Do you offer refunds?</summary><p>No refunds but actionable-advice guarantee or free follow-up.</p></details>
+      </section>
+    </main>
+
+    <footer style="margin-top:18px;text-align:center;color:#666">Dhanda Booster — Bright, quick, founder-first consultations.</footer>
+  </div>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  const copy={en:{hero:"Small Call. Big Dhanda. 🎉",cta:"Boost My Dhanda 🚀",micro:"We’ll reply within 6 hours. Promise."},hi:{hero:"छोटी कॉल। बड़ा धन्दा 🎉",cta:"मेरा धन्दा बूस्ट करें 🚀",micro:"हम 6 घंटे में जवाब देंगे। वादा।"}};
+  let lang='en';
+  document.getElementById('langToggle').addEventListener('click',function(){
+    lang=(lang==='en')?'hi':'en';
+    this.textContent=(lang==='en')?'हिन्दी':'EN';
+    document.getElementById('h').textContent=copy[lang].hero;
+    document.querySelectorAll('.primary').forEach(b=>b.textContent=copy[lang].cta);
+  });
+  document.getElementById('book').addEventListener('click',()=>{ openCalendly(); window.location.hash='#calendlyInline';});
+  document.getElementById('show').addEventListener('click',()=>{ openCalendly(); window.location.hash='#calendlyInline';});
+  function openCalendly(){ document.getElementById('calendlyInline').innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/dhandabooster/30min" style="min-width:320px;height:700px;"></div>'; }
+  function openPayment(){ window.open('https://placeholder.pay/razorpay-link','_blank'); }
+</script>
+</body>
+</html>

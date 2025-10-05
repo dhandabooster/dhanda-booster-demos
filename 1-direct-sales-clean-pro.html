@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dhanda Booster — Fix Your Growth Bottlenecks — Fast.</title>
+  <meta name="description" content="Affordable small business consultant in India offering fast, actionable 30-min sessions for business automation and growth." />
+  <!-- GA4 placeholder: Replace 'G-XXXXX' with your GA4 Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXX');</script> -->
+  <style>
+    /* Clean Pro - Single file CSS (Poppins + Inter fallback via system fonts) */
+    :root{
+      --primary:#FF7A00; --secondary:#0056D2; --accent:#FFD166; --bg:#FFFFFF;
+      --text:#111;
+      --radius:12px;
+      --gap:18px;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    body{background:linear-gradient(180deg,#fff 0%, #fff 60%);color:var(--text);-webkit-font-smoothing:antialiased;}
+    .container{max-width:1100px;margin:0 auto;padding:36px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px;}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo svg{height:38px}
+    nav a{margin-left:14px;color:#333;text-decoration:none;font-weight:600}
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:28px;border-radius:14px;background:linear-gradient(90deg, rgba(255,250,240,1) 0%, rgba(250,255,255,1) 100%);box-shadow:0 6px 24px rgba(16,24,40,0.06)}
+    .hero-left h1{font-family:Poppins,system-ui;font-size:42px;margin:0 0 12px 0}
+    .sub{font-size:18px;color:#333;margin-bottom:18px}
+    .btn-row{display:flex;gap:12px;align-items:center}
+    .btn{padding:12px 20px;border-radius:999px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--primary);color:white;box-shadow:0 6px 18px rgba(255,122,0,0.14)}
+    .btn-secondary{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+    .hero-right{display:flex;justify-content:center;align-items:center}
+    .illustration{width:100%;max-width:380px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#fff8f0,#f0f8ff);padding:18px}
+    /* values */
+    .values{ text-align:center;padding:42px 10px}
+    .bullets{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .bullet{background:#fff;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(10,10,10,0.04)}
+    .bullet small{display:block;color:#666}
+    /* features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+    .card{background:white;border-radius:14px;padding:20px;box-shadow:0 8px 20px rgba(12,18,30,0.06);transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(12,18,30,0.09)}
+    .card h3{margin:0 0 8px 0}
+    .process{display:flex;gap:18px;align-items:center;margin-top:26px}
+    .process .step{flex:1;background:#fff;padding:12px;border-radius:10px;text-align:center}
+    /* pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+    .price-card{border-radius:12px;padding:18px;text-align:center;border:1px solid rgba(255,122,0,0.12)}
+    .price-highlight{box-shadow:0 12px 30px rgba(255,122,0,0.12);transform:scale(1.02)}
+    .faq{margin-top:22px}
+    details{background:white;padding:12px;border-radius:10px;margin-bottom:8px;border:1px solid #eee}
+    footer{margin-top:40px;padding:24px 0;color:#fff;background:#111}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:12px;display:flex;justify-content:space-between;align-items:center}
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .hero-right{order:-1;margin-bottom:12px}
+      .bullets{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      .process{flex-direction:column}
+    }
+    /* small util */
+    .muted{color:#666;font-size:14px}
+    .translate-toggle{border-radius:999px;padding:8px 12px;border:1px solid #ddd;background:#fff;cursor:pointer}
+    .calendly-wrap{margin-top:16px}
+    /* form UI */
+    .form-row{display:flex;gap:12px}
+    input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e6e6;background:#fbfbfb}
+    input:focus,textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(255,122,0,0.08);border-color:var(--primary)}
+    .small{font-size:13px}
+  </style>
+</head>
+<body>
+  <header class="container" role="banner">
+    <div class="logo" aria-hidden="false">
+      <!-- Simple SVG wordmark -->
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dhanda Booster logo">
+        <rect rx="6" width="40" height="40" fill="#FF7A00"/>
+        <text x="52" y="26" font-family="Poppins, sans-serif" font-weight="700" font-size="18" fill="#111">Dhanda Booster</text>
+      </svg>
+    </div>
+    <nav aria-label="Primary">
+      <button id="langToggle" class="translate-toggle" aria-pressed="false">हिन्दी</button>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main class="container" role="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <h1 id="hero-heading">Fix Your Growth Bottlenecks — Fast.</h1>
+        <p class="sub">Book a 30-min consultation and get ROI-driven fixes within hours.</p>
+        <div class="btn-row" role="group" aria-label="Call to action">
+          <button class="btn btn-primary" id="bookNowBtn">Book Now — ₹499</button>
+          <button class="btn btn-secondary" id="seeHowBtn">Claim My Fast Fix</button>
+        </div>
+        <p class="muted small" style="margin-top:12px" id="microcopy">Enter your best email — we’ll send your booking link.</p>
+
+        <!-- Quick booking form (non-blocking) -->
+        <form id="miniForm" style="margin-top:14px" onsubmit="return false" aria-label="Quick booking">
+          <div class="form-row">
+            <input id="name" placeholder="Your name" required aria-label="Your name" />
+            <input id="email" placeholder="Email (we'll send the link)" required type="email" aria-label="Email address"/>
+          </div>
+        </form>
+
+        <div class="calendly-wrap" aria-live="polite">
+          <p class="small muted">Pick a slot — Calendly opens inline below.</p>
+        </div>
+
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="illustration" role="img" aria-label="Founder workspace illustration">
+          <!-- simple illustration placeholder -->
+          <svg width="100%" height="250" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="18" y="18" rx="12" width="560" height="364" fill="#fff"/>
+            <g transform="translate(40,40)">
+              <rect x="0" y="0" width="220" height="140" rx="8" fill="#FFFAF2"/>
+              <rect x="240" y="0" width="220" height="140" rx="8" fill="#F0F8FF"/>
+              <circle cx="110" cy="200" r="36" fill="#FFD166"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendly embed target -->
+    <div id="calendlyInline" class="container" style="margin-top:20px"></div>
+
+    <!-- Value bullets -->
+    <section class="values" aria-labelledby="values-heading">
+      <h2 id="values-heading" style="font-family:Poppins, sans-serif;">Short, sharp consultations that deliver real automation and growth.</h2>
+      <div class="bullets" role="list">
+        <div class="bullet" role="listitem"><strong>Fast actionable advice</strong><small>Cut the noise, start acting.</small></div>
+        <div class="bullet" role="listitem"><strong>No retainer headaches</strong><small>Pay per fix — no strings.</small></div>
+        <div class="bullet" role="listitem"><strong>Done-for-you templates</strong><small>Plug and implement today.</small></div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" aria-labelledby="features-heading">
+      <h2 id="features-heading" style="grid-column:1/-1">Why Dhanda Booster</h2>
+      <div class="card">
+        <h3>Action in 30 Minutes</h3>
+        <p>No long strategy decks. Focused call, clarity, next steps, plug-and-play templates.</p>
+      </div>
+      <div class="card">
+        <h3>Built for Small Biz Founders</h3>
+        <p>Practical fixes for freelancers and lean startups — no fluff.</p>
+      </div>
+      <div class="card">
+        <h3>Automation That Pays Back</h3>
+        <p>We set up simple automations that save hours weekly — ROI you can see.</p>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" aria-labelledby="process-heading">
+      <h2 id="process-heading" style="width:100%">How it works</h2>
+      <div class="step"><strong>Step 1</strong><div class="small">Pick plan & book</div></div>
+      <div class="step"><strong>Step 2</strong><div class="small">30-min call with expert</div></div>
+      <div class="step"><strong>Step 3</strong><div class="small">Get custom action plan same-day</div></div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing" aria-labelledby="pricing-heading">
+      <h2 id="pricing-heading" style="grid-column:1/-1">Pricing</h2>
+      <div class="price-card price-highlight" aria-hidden="false">
+        <h3>Single — ₹499</h3>
+        <p>One focused 30-min session. High ROI fixes.</p>
+        <div style="margin-top:12px">
+          <button class="btn btn-primary" onclick="openPayment('razorpay')">Pay / Book — ₹499</button>
+        </div>
+      </div>
+      <div class="price-card">
+        <h3>2-pack — ₹899</h3>
+        <p>Two sessions, recurring monthly support.</p>
+        <div style="margin-top:12px"><button class="btn btn-secondary" onclick="openPayment('razorpay')">Choose</button></div>
+      </div>
+      <div class="price-card">
+        <h3>4-pack — ₹1,599</h3>
+        <p>Best for product + ops sprints.</p>
+        <div style="margin-top:12px"><button class="btn btn-secondary" onclick="openPayment('razorpay')">Choose</button></div>
+      </div>
+    </section>
+
+    <!-- Social proof -->
+    <section class="features" aria-labelledby="proof-heading" style="margin-top:28px">
+      <h2 id="proof-heading" style="grid-column:1/-1">What founders say</h2>
+      <div class="card"><strong>“30 mins felt like a full strategy sprint.”</strong><div class="small">— Ramesh, D2C Founder</div></div>
+      <div class="card"><strong>“High ROI for ₹499 — no-brainer.”</strong><div class="small">— Sneha, Ecommerce Seller</div></div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <details><summary>Who is Dhanda Booster for?</summary><p>Small business founders, solopreneurs, and freelancers who need quick, actionable business guidance.</p></details>
+      <details><summary>What do I get after the session?</summary><p>Clear next steps, templates, and automation ideas ready to implement right away.</p></details>
+      <details><summary>Do you offer refunds?</summary><p>No refunds, but actionable advice guarantee or free follow-up call.</p></details>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <strong>Dhanda Booster</strong><div class="small">Short, sharp consultations that deliver real automation and growth.</div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="#" class="small" style="color:#fff;text-decoration:none">LinkedIn</a>
+        <a href="#" class="small" style="color:#fff;text-decoration:none">WhatsApp</a>
+        <a href="#" class="small" style="color:#fff;text-decoration:none">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calendly embed script -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <script>
+    /***** Static copy (English/Hindi) for client-side toggle *****/
+    const copy = {
+      en: {
+        hero: "Fix Your Growth Bottlenecks — Fast.",
+        sub: "Book a 30-min consultation and get ROI-driven fixes within hours.",
+        primaryCta: "Book Now — ₹499",
+        micro: "Enter your best email — we’ll send your booking link.",
+        valuesHeading: "Short, sharp consultations that deliver real automation and growth.",
+        bullets: ["Fast actionable advice","No retainer headaches","Done-for-you templates"]
+      },
+      hi: {
+        hero: "अपनी ग्रोथ की रुकावटें — जल्दी ठीक करें।",
+        sub: "30 मिनट की कंसल्टेशन बुक करें और कुछ ही घंटों में ROI-ड्रिवन फ़िक्स पाएं।",
+        primaryCta: "बुक करें — ₹499",
+        micro: "अपना बेस्ट ईमेल डालें — हम बुकिंग लिंक भेजेंगे।",
+        valuesHeading: "छोटी, असरदार कंसल्टेशन जो असली ऑटोमेशन और ग्रोथ देती हैं।",
+        bullets: ["तेज़ और लागू करने योग्य सलाह","कोई रिटेनर नहीं","तैयार टेम्प्लेट"]
+      }
+    };
+
+    // Language toggle
+    let lang = 'en';
+    const elements = {
+      hero: document.getElementById('hero-heading'),
+      sub: document.querySelector('.sub'),
+      micro: document.getElementById('microcopy'),
+      bookNowBtn: document.getElementById('bookNowBtn'),
+      valuesHeading: document.getElementById('values-heading')
+    };
+    document.getElementById('langToggle').addEventListener('click', function(){
+      lang = (lang==='en') ? 'hi' : 'en';
+      this.textContent = (lang==='en') ? 'हिन्दी' : 'EN';
+      this.setAttribute('aria-pressed', String(lang==='hi'));
+      // update copy
+      elements.hero.textContent = copy[lang].hero;
+      elements.sub.textContent = copy[lang].sub;
+      elements.bookNowBtn.textContent = copy[lang].primaryCta;
+      elements.micro.textContent = copy[lang].micro;
+      elements.valuesHeading.textContent = copy[lang].valuesHeading;
+      // update bullets
+      document.querySelectorAll('.bullet').forEach((b,i)=>{ b.querySelector('strong').textContent = copy[lang].bullets[i]; });
+    });
+
+    // Calendly open handlers
+    document.getElementById('bookNowBtn').addEventListener('click', openCalendlyFromBtn);
+    document.getElementById('seeHowBtn').addEventListener('click', openCalendlyFromBtn);
+    function openCalendlyFromBtn(){ openCalendly(); window.location.hash='#calendlyInline'; }
+
+    function openCalendly(){
+      // Calendly inline embed - uses your provided Calendly link
+      const parent = document.getElementById('calendlyInline');
+      parent.innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/dhandabooster/30min" style="min-width:320px;height:700px;"></div>';
+      // widgets script (already loaded)
+    }
+
+    // Payment placeholder: opens a modal or new tab to the placeholder Razorpay link or shows UPI QR
+    function openPayment(provider){
+      if(provider==='razorpay'){
+        // Placeholder - replace with your Razorpay payment-link URL
+        window.open('https://placeholder.pay/razorpay-link','_blank');
+      } else {
+        // fallback: show UPI QR modal (simple)
+        alert('After booking you can pay via UPI. This is a placeholder QR step.');
+      }
+    }
+
+    // Minimal accessibility improvements: focus outline for keyboard users
+    document.addEventListener('keyup',function(e){
+      if(e.key==='Tab'){ document.body.classList.add('show-focus'); }
+    });
+
+    // Micro-analytics: console (replace with GA4 snippet above)
+    console.log('Dhanda Booster (direct-sales-clean-pro) loaded');
+  </script>
+</body>
+</html>

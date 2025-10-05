@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dhanda Booster — Friendly, practical business consultations</title>
+  <meta name="description" content="Actionable 30-min consults for founders."/>
+  <style>
+    /* Helpful Expert - Founder Desk */
+    :root{--primary:#FF8C42;--secondary:#0077B6;--bg:#F7FBFF;--accent:#FFE156;--text:#072033}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Rubik,Inter,system-ui;background:var(--bg);color:var(--text)}
+    .page{max-width:980px;margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .logo svg{height:38px}
+    .hero{background:#fff;padding:18px;border-radius:12px;display:flex;gap:12px;align-items:center}
+    .hero h1{margin:0;color:var(--primary);font-size:28px}
+    .sub{color:#184056}
+    .cta{display:flex;gap:10px}
+    .btn{padding:10px 14px;border-radius:999px;border:0;font-weight:700;cursor:pointer}
+    .primary{background:var(--primary);color:#fff}
+    .secondary{background:transparent;border:2px solid rgba(0,0,0,0.06)}
+    .illustr{padding:12px;border-radius:10px;background:linear-gradient(90deg,#fff,#fff6e8)}
+    .features{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+    .card{background:#fff;padding:12px;border-radius:10px}
+    .pricing{margin-top:14px}
+    .price-card{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04)}
+    .qr{width:110px;height:110px;background:#fff;border:1px dashed #ddd;border-radius:8px;display:flex;align-items:center;justify-content:center}
+    @media(min-width:900px){.features{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 220 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="42" height="42" rx="8" fill="#FF8C42"/>
+          <text x="56" y="28" font-weight="700" font-family="Rubik, sans-serif" font-size="18" fill="#072033">Dhanda Booster</text>
+        </svg>
+      </div>
+      <div>
+        <button id="langToggle" class="translate-toggle">हिन्दी</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="h">
+        <div>
+          <h1 id="h">Clarity and Systems for Growing Founders.</h1>
+          <p class="sub">Smart, no-fluff consulting built for Indian startups and freelancers.</p>
+          <div class="cta">
+            <button class="btn primary" id="bookBtn">Start with a ₹499 Call</button>
+            <button class="btn secondary" id="learnBtn">See How It Works</button>
+          </div>
+        </div>
+        <div class="illustr" aria-hidden="true">
+          <div style="width:220px;height:120px;border-radius:8px;background:#FFE156"></div>
+        </div>
+      </section>
+
+      <div id="calendlyInline" style="margin-top:16px"></div>
+
+      <section class="features" aria-labelledby="f">
+        <h2 id="f">What you get</h2>
+        <div class="card"><strong>Action in 30 Minutes</strong><div class="small">No long decks — direct fixes</div></div>
+        <div class="card"><strong>Built for Small Biz Founders</strong><div class="small">Scale-friendly advice</div></div>
+        <div class="card"><strong>Automation That Pays Back</strong><div class="small">Hours saved weekly</div></div>
+      </section>
+
+      <section class="pricing" aria-labelledby="p">
+        <h2 id="p">Pricing</h2>
+        <div class="price-card" style="margin-top:10px">
+          <div>
+            <strong>Single — ₹499</strong><div class="small">30-min consult</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn primary" onclick="openPayment('razorpay')">Pay / Book</button>
+            <a href="#" title="UPI/QR (placeholder)"><div class="qr">UPI QR</div></a>
+          </div>
+        </div>
+        <div class="price-card" style="margin-top:10px">
+          <div><strong>2-pack — ₹899</strong><div class="small">Monthly micro-support</div></div>
+          <div><button class="btn secondary" onclick="openPayment('razorpay')">Choose</button></div>
+        </div>
+      </section>
+
+      <section class="faq" style="margin-top:14px">
+        <h2>FAQ</h2>
+        <details><summary>Do you offer refunds?</summary><p>We don’t, but we guarantee actionable advice or a free follow-up.</p></details>
+        <details><summary>Is it only for Indian startups?</summary><p>Our focus is India, but anyone needing practical automation help can book.</p></details>
+      </section>
+    </main>
+
+    <footer style="margin-top:18px;text-align:center;color:#666">Dhanda Booster — Practical, fast, and founder-friendly.</footer>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    const copy = {
+      en:{hero:"Clarity and Systems for Growing Founders.", sub:"Smart, no-fluff consulting built for Indian startups and freelancers."},
+      hi:{hero:"विकासशील संस्थापकों के लिए स्पष्टता और सिस्टम।", sub:"इंडियन स्टार्टअप्स और फ्रीलांसरों के लिए स्मार्ट, नो-फ्लफ़ कंसल्टिंग।"}
+    };
+    let lang='en';
+    document.getElementById('langToggle').addEventListener('click',function(){
+      lang=(lang==='en')?'hi':'en';
+      this.textContent=(lang==='en')?'हिन्दी':'EN';
+      document.getElementById('h').textContent=copy[lang].hero;
+      document.querySelector('.sub').textContent=copy[lang].sub;
+    });
+
+    document.getElementById('bookBtn').addEventListener('click',()=>{ openCalendly(); window.location.hash='#calendlyInline';});
+    document.getElementById('learnBtn').addEventListener('click',()=>{ openCalendly(); window.location.hash='#calendlyInline';});
+    function openCalendly(){ document.getElementById('calendlyInline').innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/dhandabooster/30min" style="min-width:320px;height:700px;"></div>'; }
+    function openPayment(){ window.open('https://placeholder.pay/razorpay-link','_blank'); }
+  </script>
+</body>
+</html>

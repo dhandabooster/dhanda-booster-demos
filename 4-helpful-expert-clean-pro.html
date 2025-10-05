@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dhanda Booster — Clarity and Systems for Growing Founders</title>
+  <meta name="description" content="Friendly, practical business consultations built for small business success."/>
+  <!-- GA4 placeholder: replace G-XXXXX -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXX');</script> -->
+  <style>
+    /* Helpful Expert - Clean Pro */
+    :root{
+      --primary:#FFA94D; /* friendly orange */
+      --secondary:#004E89; /* deep blue */
+      --accent:#EAF0F6;
+      --bg:#FFFFFF;
+      --text:#0b2540;
+      --radius:12px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:0 auto;padding:32px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+    .logo svg{height:40px}
+    nav{display:flex;gap:12px;align-items:center}
+    .translate-toggle{border-radius:999px;padding:8px 12px;border:1px solid #e6eaf0;background:white;cursor:pointer}
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:28px;border-radius:14px;background:linear-gradient(180deg,var(--accent),#fff);box-shadow:0 8px 30px rgba(4,18,37,0.04)}
+    .hero h1{font-family:Poppins,system-ui;font-size:38px;margin:0;color:var(--secondary)}
+    .sub{margin-top:8px;color:#1f3854;font-size:17px}
+    .btn-row{display:flex;gap:12px;margin-top:16px;align-items:center}
+    .btn{padding:12px 18px;border-radius:999px;font-weight:700;cursor:pointer;border:0}
+    .btn-primary{background:var(--primary);color:#fff;box-shadow:0 8px 22px rgba(255,169,77,0.12)}
+    .btn-secondary{background:transparent;border:2px solid rgba(0,78,137,0.08);color:var(--secondary)}
+    .illustration{border-radius:10px;padding:14px;background:#fff;display:flex;align-items:center;justify-content:center}
+    /* values */
+    .values{text-align:center;padding:34px 10px}
+    .bullets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .bullet{background:#fff;border-radius:12px;padding:16px;box-shadow:0 8px 20px rgba(12,24,36,0.04)}
+    .bullet strong{display:block;margin-bottom:6px}
+    /* features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .card{background:white;border-radius:12px;padding:18px;box-shadow:0 8px 20px rgba(8,24,40,0.04);transition:transform .18s}
+    .card:hover{transform:translateY(-6px)}
+    /* process */
+    .process{display:flex;gap:12px;margin-top:22px}
+    .step{flex:1;background:#fff;padding:12px;border-radius:10px;text-align:center}
+    /* pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .price-card{background:#fff;padding:16px;border-radius:12px;border:1px solid rgba(4,18,37,0.04);text-align:center}
+    .price-highlight{box-shadow:0 12px 30px rgba(10,52,86,0.06);transform:scale(1.02)}
+    /* faq */
+    .faq{margin-top:18px}
+    details{background:#fff;padding:12px;border-radius:10px;margin-bottom:8px;border:1px solid #eef5fb}
+    footer{margin-top:36px;background:#0b2540;color:#fff;padding:20px;border-radius:8px}
+    /* responsive */
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;text-align:center}
+      .bullets{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      .process{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div class="logo" aria-hidden="false">
+        <!-- simple wordmark -->
+        <svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dhanda Booster">
+          <rect rx="6" width="40" height="40" fill="#FFA94D"/>
+          <text x="56" y="26" font-family="Poppins, sans-serif" font-weight="700" font-size="18" fill="#004E89">Dhanda Booster</text>
+        </svg>
+      </div>
+      <nav aria-label="Site">
+        <button id="langToggle" class="translate-toggle" aria-pressed="false">हिन्दी</button>
+        <a href="#pricing" style="color:var(--secondary);text-decoration:none;font-weight:600">Pricing</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-h">
+      <div>
+        <h1 id="hero-h">Clarity and Systems for Growing Founders.</h1>
+        <p class="sub">Friendly, practical business consultations built for small business success.</p>
+        <div class="btn-row" role="group">
+          <button class="btn btn-primary" id="bookNow">Start with a ₹499 Call</button>
+          <button class="btn btn-secondary" id="howItWorks">See How It Works</button>
+        </div>
+        <p class="small" style="margin-top:12px" id="microcopy">Enter your best email — we’ll send your booking link.</p>
+
+        <form id="miniForm" style="margin-top:12px" onsubmit="return false">
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <input id="name" placeholder="Your name" style="padding:10px;border-radius:10px;border:1px solid #eef5fb;background:#fbfdff"/>
+            <input id="email" placeholder="Email" type="email" style="padding:10px;border-radius:10px;border:1px solid #eef5fb;background:#fbfdff"/>
+          </div>
+        </form>
+      </div>
+
+      <div class="illustration" aria-hidden="true">
+        <!-- gentle illustration -->
+        <svg width="360" height="220" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect rx="12" width="360" height="220" fill="#fff"/>
+          <g transform="translate(24,24)">
+            <rect x="0" y="0" width="220" height="120" rx="8" fill="#F9FAFC"/>
+            <rect x="240" y="0" width="80" height="120" rx="8" fill="#EAF0F6"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <div id="calendlyInline" style="margin-top:18px"></div>
+
+    <section class="values" aria-labelledby="values-h">
+      <h2 id="values-h" style="font-family:Poppins, sans-serif">Short, sharp consultations that deliver real automation and growth.</h2>
+      <div class="bullets" role="list">
+        <div class="bullet" role="listitem"><strong>Fast actionable advice</strong><small>Quick wins you can implement today</small></div>
+        <div class="bullet" role="listitem"><strong>No retainer headaches</strong><small>Pay per session — flexible</small></div>
+        <div class="bullet" role="listitem"><strong>Done-for-you templates</strong><small>Copy, paste, implement</small></div>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-h">
+      <h2 id="features-h" style="grid-column:1/-1">Why founders choose us</h2>
+      <div class="card"><h3>Action in 30 Minutes</h3><p>No long decks. Clear next steps and templates to act the same day.</p></div>
+      <div class="card"><h3>Built for Small Biz Founders</h3><p>Practical, scale-appropriate fixes — no jargon.</p></div>
+      <div class="card"><h3>Automation That Pays Back</h3><p>Simple automations that save hours each week.</p></div>
+    </section>
+
+    <section class="process" aria-labelledby="process-h">
+      <h2 id="process-h" style="width:100%">How it works</h2>
+      <div class="step"><strong>Step 1</strong><div class="small">Pick plan & book</div></div>
+      <div class="step"><strong>Step 2</strong><div class="small">30-min call with expert</div></div>
+      <div class="step"><strong>Step 3</strong><div class="small">Get your action plan same-day</div></div>
+    </section>
+
+    <section id="pricing" class="pricing" aria-labelledby="pricing-h">
+      <h2 id="pricing-h" style="grid-column:1/-1">Pricing</h2>
+      <div class="price-card price-highlight">
+        <h3>Single — ₹499</h3>
+        <p>One focused 30-min session. Actionable plan & templates.</p>
+        <div style="margin-top:12px">
+          <button class="btn btn-primary" onclick="openPayment('razorpay')">Pay / Book — ₹499</button>
+        </div>
+      </div>
+      <div class="price-card"><h3>2-pack — ₹899</h3><p>Two focused sessions.</p><div style="margin-top:10px"><button class="btn btn-secondary" onclick="openPayment('razorpay')">Choose</button></div></div>
+      <div class="price-card"><h3>4-pack — ₹1,599</h3><p>Support across sprints.</p><div style="margin-top:10px"><button class="btn btn-secondary" onclick="openPayment('razorpay')">Choose</button></div></div>
+    </section>
+
+    <section class="features" style="margin-top:20px">
+      <h2 style="grid-column:1/-1">What founders say</h2>
+      <div class="card"><strong>“Finally a consultant who doesn’t waste time.”</strong><div class="small">— Kavita, Freelancer</div></div>
+      <div class="card"><strong>“Got my workflow automated the same day.”</strong><div class="small">— Arjun, Agency Owner</div></div>
+    </section>
+
+    <section class="faq" id="faq">
+      <h2>FAQ</h2>
+      <details><summary>Who is Dhanda Booster for?</summary><p>Small business founders, solopreneurs, and freelancers who need quick, actionable business guidance.</p></details>
+      <details><summary>What do I get after the session?</summary><p>Clear next steps, templates, and automation ideas ready to implement right away.</p></details>
+    </section>
+
+    <footer style="margin-top:28px">
+      <div style="background:var(--secondary);color:#fff;padding:16px;border-radius:10px;text-align:center">
+        <strong>Dhanda Booster</strong><div class="small">Friendly, practical business consultations for founders.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Calendly widget -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    const copy = {
+      en: {
+        hero: "Clarity and Systems for Growing Founders.",
+        sub: "Friendly, practical business consultations built for small business success.",
+        cta: "Start with a ₹499 Call",
+        micro: "Enter your best email — we’ll send your booking link.",
+        bullets: ["Fast actionable advice","No retainer headaches","Done-for-you templates"]
+      },
+      hi: {
+        hero: "विकासशील संस्थापकों के लिए स्पष्टता और सिस्टम।",
+        sub: "दोस्ताना, व्यावहारिक बिजनेस कंसल्टेशन — छोटे व्यवसायों के लिए।",
+        cta: "₹499 से शुरुआत करें",
+        micro: "अपना बेस्ट ईमेल डालें — हम बुकिंग लिंक भेजेंगे।",
+        bullets: ["तेज़ लागू करने योग्य सलाह","कोई रिटेनर नहीं","तैयार टेम्प्लेट"]
+      }
+    };
+    let lang='en';
+    const heroEl=document.getElementById('hero-h'), subEl=document.querySelector('.sub'), btn=document.getElementById('bookNow'), micro=document.getElementById('microcopy');
+    document.getElementById('langToggle').addEventListener('click',function(){
+      lang=(lang==='en')?'hi':'en';
+      this.textContent=(lang==='en')?'हिन्दी':'EN';
+      heroEl.textContent=copy[lang].hero;
+      subEl.textContent=copy[lang].sub;
+      btn.textContent=copy[lang].cta;
+      micro.textContent=copy[lang].micro;
+      document.querySelectorAll('.bullet strong').forEach((b,i)=>b.textContent=copy[lang].bullets[i]);
+    });
+
+    document.getElementById('bookNow').addEventListener('click',()=>{ openCalendly(); window.location.hash='#calendlyInline';});
+    document.getElementById('howItWorks').addEventListener('click',()=>{ openCalendly(); window.location.hash='#calendlyInline';});
+    function openCalendly(){
+      const target=document.getElementById('calendlyInline');
+      target.innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/dhandabooster/30min" style="min-width:320px;height:700px;"></div>';
+    }
+
+    function openPayment(){
+      // placeholder. Replace with Razorpay payment-link
+      window.open('https://placeholder.pay/razorpay-link','_blank');
+    }
+  </script>
+</body>
+</html>
