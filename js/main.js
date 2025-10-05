@@ -8,11 +8,13 @@
     const basePath = location.pathname.replace(/\/[^/]*$/, '/');
     console.log("basePath:", basePath);
 
+    const tone = document.body.dataset?.tone || 'direct';
     const urls = {
-      mainJs: basePath + 'js/main.js', // this file (for reference)
+      self: basePath + 'js/main.js',
       cssCommon: basePath + 'css/common.css',
+      cssTone: basePath + 'css/' + (tone === 'direct' ? 'direct' : (tone === 'helpful' ? 'helpful' : 'playful')) + '.css',
       copyCommon: basePath + 'copy/common.json',
-      copyTone: basePath + 'copy/' + (document.body.dataset?.tone || 'direct') + '.json'
+      copyTone: basePath + 'copy/' + tone + '.json'
     };
     console.log("Will check URLs:", urls);
 
@@ -41,16 +43,14 @@
       }
     }
 
-    // check files in order
+    // run checks
     await check(urls.cssCommon).catch(()=>{});
-    // check main.js self (best-effort, it will request itself)
-    await check(urls.mainJs).catch(()=>{});
-    // check common json
+    await check(urls.cssTone).catch(()=>{});
+    await check(urls.self).catch(()=>{});
     const common = await check(urls.copyCommon, true).catch(()=>null);
-    // check tone json
-    const tone = await check(urls.copyTone, true).catch(()=>null);
+    const toneJson = await check(urls.copyTone, true).catch(()=>null);
 
-    // Simple DOM sanity: ensure key elements exist or create placeholders
+    // Ensure DOM anchors exist so we can populate some content for visibility
     function ensureId(id, tag='div'){
       let el = document.getElementById(id);
       if(!el){
@@ -70,16 +70,16 @@
     ensureId('features','div');
     ensureId('faq-list','div');
 
-    // Show some populated values so page isn't blank
+    // populate visible content so page doesn't appear empty
     const heroEl = document.getElementById('hero-title');
-    heroEl.textContent = (tone && tone.hero) || (common && common.hero) || 'Hero: (no hero text found)';
+    heroEl.textContent = (toneJson && toneJson.hero) || (common && common.hero) || 'Hero: (no hero text found)';
     const subEl = document.getElementById('hero-sub');
-    subEl.textContent = (tone && tone.subhead) || (common && common.subhead) || '';
-    document.getElementById('cta-primary').textContent = (tone && tone.cta_primary) || (common && common.cta_primary) || 'Book — ₹499';
-    document.getElementById('cta-secondary').textContent = (tone && tone.cta_secondary) || (common && common.cta_secondary) || 'See How';
+    subEl.textContent = (toneJson && toneJson.subhead) || (common && common.subhead) || '';
+    document.getElementById('cta-primary').textContent = (toneJson && toneJson.cta_primary) || 'Book — ₹499';
+    document.getElementById('cta-secondary').textContent = (toneJson && toneJson.cta_secondary) || 'See How';
     document.getElementById('microcopy').textContent = (common && common.microcopy && common.microcopy[0]) || 'Microcopy missing';
 
-    // populate bullets/features if present
+    // small population of lists
     const bulletsWrap = document.getElementById('bullets');
     bulletsWrap.innerHTML = '';
     if(common && Array.isArray(common.bullets)){
@@ -105,7 +105,7 @@
       featuresWrap.textContent = '(no features)';
     }
 
-    console.log('DEBUG main.js finished successfully. If UI still looks empty, check for CSS loading errors above.');
+    console.log('DEBUG main.js finished successfully.');
   } catch(e){
     console.error('Unhandled error in debugMain:', e);
   }
