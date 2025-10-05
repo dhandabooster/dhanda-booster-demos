@@ -13,9 +13,16 @@ Nine static demo landing pages (three tones × three visual variants) for Dhanda
 - playful_startup_2.html
 - playful_startup_3.html
 
-## Quick preview
-Open any file directly in your browser, or view via GitHub Pages after enabling Pages:
-`https://dhandabooster-sys.github.io/dhanda-booster-demos/<filename>.html`
+## Quick preview (click to open)
+- [direct-sales-clean-pro.html](direct-sales-clean-pro.html)
+- [direct-sales-gradient-boost.html](direct-sales-gradient-boost.html)
+- [direct-sales-founder-desk.html](direct-sales-founder-desk.html)
+- [helpful-expert-clean-pro.html](helpful-expert-clean-pro.html)
+- [helpful-expert-gradient-boost.html](helpful-expert-gradient-boost.html)
+- [helpful-expert-founder-desk.html](helpful-expert-founder-desk.html)
+- [playful_startup_1.html](playful_startup_1.html)
+- [playful_startup_2.html](playful_startup_2.html)
+- [playful_startup_3.html](playful_startup_3.html)
 
 ## Deployment (Web UI)
 1. Upload files to this repo (root).
