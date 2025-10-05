@@ -14,15 +14,15 @@ Nine static demo landing pages (three tones × three visual variants) for Dhanda
 - playful_startup_3.html
 
 ## Quick preview (click to open)
-- [direct-sales-clean-pro.html](direct-sales-clean-pro.html)
-- [direct-sales-gradient-boost.html](direct-sales-gradient-boost.html)
-- [direct-sales-founder-desk.html](direct-sales-founder-desk.html)
-- [helpful-expert-clean-pro.html](helpful-expert-clean-pro.html)
-- [helpful-expert-gradient-boost.html](helpful-expert-gradient-boost.html)
-- [helpful-expert-founder-desk.html](helpful-expert-founder-desk.html)
-- [playful_startup_1.html](playful_startup_1.html)
-- [playful_startup_2.html](playful_startup_2.html)
-- [playful_startup_3.html](playful_startup_3.html)
+- [direct-sales-clean-pro.html](1-direct-sales-clean-pro.html)
+- [direct-sales-gradient-boost.html](2-direct-sales-gradient-boost.html)
+- [direct-sales-founder-desk.html](3-direct-sales-founder-desk.html)
+- [helpful-expert-clean-pro.html](4-helpful-expert-clean-pro.html)
+- [helpful-expert-gradient-boost.html](5-helpful-expert-gradient-boost.html)
+- [helpful-expert-founder-desk.html](6-helpful-expert-founder-desk.html)
+- [playful_startup_1.html](7-playful_startup_1.html)
+- [playful_startup_2.html](8-playful_startup_2.html)
+- [playful_startup_3.html](9-playful_startup_3.html)
 
 ## Deployment (Web UI)
 1. Upload files to this repo (root).
