@@ -1,0 +1,11 @@
+/* direct.css - tone: direct_sales (urgent, high-contrast) */
+:root{
+  --primary:#FF5A00;
+  --accent:#FFD700;
+  --primary-contrast:#fff;
+}
+body[data-tone="direct"] .hero{background:linear-gradient(90deg, rgba(255,90,0,0.06), rgba(255,250,240,1))}
+body[data-tone="direct"] .btn-primary{background:var(--primary);color:var(--primary-contrast);box-shadow:0 12px 30px rgba(255,90,0,0.14)}
+body[data-tone="direct"] .btn-secondary{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+body[data-tone="direct"] .price-card{border:1px solid rgba(255,90,0,0.12)}
+body[data-tone="direct"] .tag{background:var(--primary);color:#fff;padding:6px 10px;border-radius:8px}
